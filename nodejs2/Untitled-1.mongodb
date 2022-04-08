@@ -1,0 +1,60 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('firstdatabase');
+
+// db.createCollection("test2"); //oluşturmak
+
+//db.dropDatabase() collection (oracledaki table) uçurmak.
+
+// db.test2.insert({
+//     name:"Elif",               //insert işlemi mongodb kısmı işin.
+//     type:"Software"
+// })
+
+//mongodbye kayıtlar obje olarak atılırlar ve uniq olarak idleri olur süslü parentez ile gösterdiklerimizin arasındaki veriler objenin verilerini gösterir.
+
+// db.test2.insertMany([
+//     {name:"ali",age:21},     //dizi olarak birden çok objeyi tutabiliriz.
+//     {name:"ayse",age:22}
+// ])
+
+// db.test2.find() //select sorgusunu find ile yaparsın. Find jsteki find ile aynı mantıkta çalışır.
+// db.test2.find({age:18}) //age:18 olanın verisini sorguladı. age gibi bir alanı değil virgüller ayırarak birden 
+//fazla alanı da aynı anda sorgulayabiliriz. sorgulananlar yani sütunlar oracledakiler mongodbde fields olarak geeçmektedir. 
+//Find içerisinde lojik ifadeler yani and orr gibi ifadelerde kullanılabilir.  $or , $and gibi koşullar oluşturulur.
+// db.test2.find($or:{[{age:18,name:"ali"}]})
+// db.test2.find({age:{$lt:20}}) // 20den küçüktür anlamına geliyor gelen parametre $hangi sayıya göre yapılmasını istiyorsan 
+//o sayıya göre parametre getiriyorsun.lastthen küçüktür anlamında kullanılır.
+//b.test2.find({age:{$gt:20}}) //20den büyük anlamına gelmektedir. $gt parametresi. 20 dahil edilmez.
+// $lte olarak kullanılırsa küçük eşit $gte olarak kullanılırsa büyük eşit anlamına gelmektedir.
+
+
+// db.test2.find({age:{$ne:15}}) //eşit değildir. not equal
+// db.test2.find().short({age:1}) //// A'dan Z'ye sıralama ya da küçükten büyüğe
+// db.test2.find().short({age:-1}) //// Z'den A'ya sıralama ya da büyükten küçüğe
+
+
+
+// db.test2.find().limit(1)//bir kayıt getirilmesini sağlar.
+
+// db.test2.updateOne({
+//     {name:"ali"},
+//     {
+//       $set:{
+//             name:"enes"
+//             age:23
+//         }
+//     }
+// })
+
+// db.test2.deleteOne({age:15})
+
+
+
+
+
+
