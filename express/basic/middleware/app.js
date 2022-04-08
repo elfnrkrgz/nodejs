@@ -20,7 +20,7 @@ app.use(auth);
 
 app.use((req,res,next)=>{
     //logger benden parametre ister ve vermeden çalışmaz dolasıyla request içerisinde logger aramalıyız.
-    logger(`${req.method}\t${req.url}`,'log.txt');
+    logger(`${req.method}\t${req.url}`,'log.txt'); //gelen isteğin hangi metodla geldiğini hangi urlye istek yapıldığını alıyoruz ve bunların log kayıtşlarını tutuyoruz.
     next();
 })
 
