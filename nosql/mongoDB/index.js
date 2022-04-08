@@ -17,4 +17,5 @@ const start = async () => {  //asenkron method oluşturduk için database içeri
 
 start()
 
-//promise döndürüyorsa await ile bekleniliyor olmalı mimari. Geriye dönen değer var. asenkron çünkü senkron olursa birden fazla veri kuyrukta bekler bu yüzden asenkron olarak saklıyoruz.
+//promise döndürüyorsa await ile bekleniliyor olmalı mimari. 
+//Geriye dönen değer var. asenkron çünkü senkron olursa birden fazla veri kuyrukta bekler bu yüzden asenkron olarak saklıyoruz.
