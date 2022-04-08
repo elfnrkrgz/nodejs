@@ -10,22 +10,24 @@ const app = express(); //expressin tüm özelliklerini inherit etmiş gibi olara
 
 app.get("/",(req,res)=>{  //req ve res express canlandırmalı akılda ilk olarak. Requese olarak gelen istekleri fonksiyon içerisine yapılan işlemler ile response ile geri döndürülür.
     res.send("Hello-hii"); // önceden res.end ile gönderilirken bu frameworkte özelliştirilerek send diye metot oluşturulmuş ve kullanıcıya gönderilebilme olarak metodu yüklemiştir.
-    res.sendFile('./views/index.html',{root:__dirname}); // verilen url içerisindeki html sayfasının okunması.
+    res.sendFile('./views/index.html',{root:__dirname}); // verilen url içerisindeki html sayfasının okunması.  //{root:__dirname} //ana dosya dizinimizi verdiğimiz anlamına gelir
 
 });
 app.get('/users/:id',(req,res)=>{
-    res.send(`<h1>Users ID:${req.params.id}</h1>`); //req kısımı kullanıcının sayfaya yaptığı isteğin dinamik olarak verilen html içerisine aktarılmasına yarar.
+    res.send(`<h1>Users ID:${req.params.id}</h1>`); //req kısımı kullanıcının sayfaya yaptığı isteğin dinamik olarak verilen html içerisine aktarılmasına yarar.//params ile kullanıcının girdiği id alınır.
 }); 
 app.listen(3000,()=>console.log("Server running ")); //öncelikle port numarası verilir. // portu verilen browser dinlenilmeli.Ek olarak ip adresi vs verilebilir.
-//status 200 başarılı çalıştırılma anlamına geliyor 200lü bütün kodlar network kısmında başarılı anlamına geliyor. 304-404-505 farklı çeşitteki hataları ifade ediyor. 404 sayfa  içerisindeki hatayı 505 kendi dışındaki hatayı 304 ise yer değiştirme hatasını ifade etmektedir.
+//status 200 başarılı çalıştırılma anlamına geliyor 200lü bütün kodlar network kısmında başarılı anlamına geliyor. 
+//-404-505 farklı çeşitteki hataları ifade ediyor. 404 sayfa  içerisindeki hatayı 
+//505 kendi dışındaki hatayı 304 ise yer değiştirme hatasını ifade etmektedir.
 
 app.use(express.json()); // dataları json formatında oluşturulmasını sağlayan katman oluşturuldu.
 const lessons = [
     {id:1, name:'fizik'},
-    {id:1, name:'kimya'},
+    {id:1, name:'kimya'},   //APP.USE kullanılıyorsa ara katman vardır.
     {id:1, name:'mat'}
 ]
-app.get('/api/lessons',(req,res)=>{
+app.get('/api/lessons',(req,res)=>{   //lessons isteği bulunulduğunda urlde oluşturmuş olduğm-umuz json lessons datasını sayfaya response olarak gönder demektir.
    res.send(lessons);
 });
 app.post('/api/lessons',(req,res)=>{
